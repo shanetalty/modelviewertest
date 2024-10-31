@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;model-viewer&gt; with Gradient Background</title>
+    <title>Model Viewer with Gradient Background</title>
     <meta charset="utf-8">
-    <meta name="description" content="&lt;model-viewer&gt; template with gradient background">
+    <meta name="description" content="Model viewer template with gradient background">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
   </head>
   <body>
+    <!-- Separate div for the gradient background -->
+    <div class="gradient-background"></div>
+
+    <!-- Main container for model viewer and congratulations text -->
     <div class="container">
-      <!-- <model-viewer> HTML element -->
       <model-viewer src="trophyy.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
         <div class="progress-bar hide" slot="progress-bar">
             <div class="update-bar"></div>
@@ -21,12 +24,10 @@
             <img src="ar_hand_prompt.png">
         </div>
       </model-viewer>  
-      
-      <!-- "CONGRATULATIONS" text below the model-viewer -->
+
       <div class="congratulations-text">CONGRATULATIONS</div>
     </div>
-    
-    <!-- JavaScript files -->
+
     <script src="script.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   </body>
