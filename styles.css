@@ -1,45 +1,45 @@
-/* Gradient background for the body */
-body {
-  margin: 0;
-  padding: 0;
+/* Animated gradient background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 182, 193, 0.8), rgba(173, 216, 230, 0.8));
   background-size: 200% 200%;
   animation: gradientAnimation 10s ease infinite;
+  z-index: -1; /* Place it behind all other content */
 }
 
-/* Container for centering <model-viewer> and text */
-.container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Keyframe animation for background movement */
+/* Keyframe animation for gradient background movement */
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Model viewer styling */
+:not(:defined) > * {
+  display: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 model-viewer {
   width: 100%;
   height: 90%;
   background-color: #ffffff;
 }
 
-/* Progress bar styles */
 .progress-bar {
   display: block;
   width: 33%;
@@ -69,7 +69,6 @@ model-viewer {
   transition: width 0.3s;
 }
 
-/* AR button styling */
 #ar-button {
   background-image: url(ar_icon.png);
   background-repeat: no-repeat;
@@ -103,7 +102,6 @@ model-viewer {
   outline: 1px solid #4285f4;
 }
 
-/* AR prompt animation */
 @keyframes circle {
   from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
   to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
@@ -130,7 +128,6 @@ model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
 
-/* Styling for "CONGRATULATIONS" text */
 .congratulations-text {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
